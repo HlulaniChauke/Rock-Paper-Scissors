@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Scissor Paper</title>
+    <script>
+        // choose Rock, Paper or Scissors randomly
+        //use Random and floor to generate numbers 1,2 or 3
+        //match the number to Rock, Paper and scissors
+        //return the choice
+    function getComputerChoice(){
+        min = 1;
+        max = 4;
+        number = Math.floor(Math.random()*(3))+1;
+        if (number === 1){
+            return "Rock"
+        }else if( number === 2){
+            return "Scissors"
+        }else if (number === 3){
+            return "Paper"
+        }
+            
+    }
+
+        console.log (getComputerChoice());
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
