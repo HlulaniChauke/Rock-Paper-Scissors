@@ -14,18 +14,43 @@
         max = 4;
         number = Math.floor(Math.random()*(3))+1;
         if (number === 1){
-            return "Rock"
+            return "rock"
         }else if( number === 2){
-            return "Scissors"
+            return "scissors"
         }else if (number === 3){
-            return "Paper"
+            return "paper"
         }
             
     }
+        // if computerSection and playerSelection are equal. its a tie
+        //if computerSection is rock and playerSelection is paper. Win 
+        //if computerSection is rock and playerSelection is scissors. Lose
+        //if computerSection is paper and playerSelection is scissors. Win  
+        //if computerSection is paper and playerSelection is rock. lose
+        //if computerSection is scissors and playerSelection is paper. lose 
+        //if computerSection is scissors and playerSelection is rock. Win  
+        function singleRound(){
+            let playerSelection = prompt("write rock, scissors or paper").toLowerCase();
+            let computerSection = getComputerChoice();
 
-        console.log (getComputerChoice());
-
-
+            if (computerSection === playerSelection){
+                return("its a tie")
+            } else if (computerSection === "rock" && playerSelection === "paper"){
+                return("You win! Paper beats Rock!")
+            } else if (computerSection === "rock" && playerSelection === "scissors"){
+                return("You lose! Rock beats scissors!")
+            } else if (computerSection === "paper" && playerSelection === "scissors"){
+                return("You win! Scissors beats Paper!")
+            } else if (computerSection === "paper" && playerSelection === "rock"){
+                return("You lose! Paper beats Rock!")
+            } else if (computerSection === "scissors" && playerSelection === "paper"){
+                return("You lose! Scissors beats Paper!")
+            } else if (computerSection === "scissors" && playerSelection === "rock"){
+                return("You Win!  Rock beats Scissors!")
+            }
+        
+        }
+        console.log (singleRound());
     </script>
 </head>
 <body>
