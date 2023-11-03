@@ -34,23 +34,26 @@
             let computerSection = getComputerChoice();
 
             if (computerSection === playerSelection){
-                return("its a tie")
+                return{ msg: "its a tie", playerScore: 0, computerScore: 0};
             } else if (computerSection === "rock" && playerSelection === "paper"){
-                return("You win! Paper beats Rock!")
+                return{ msg: "You win! Paper beats Rock!", playerScore: 1, computerScore: 0};
+               
             } else if (computerSection === "rock" && playerSelection === "scissors"){
-                return("You lose! Rock beats scissors!")
+                return{ msg: "You lose! Rock beats scissors!", playerScore: 0, computerScore: 1};
+                
             } else if (computerSection === "paper" && playerSelection === "scissors"){
-                return("You win! Scissors beats Paper!")
+                return{ msg: "You win! Scissors beats Paper!", playerScore: 1, computerScore: 0};
+                return("")
             } else if (computerSection === "paper" && playerSelection === "rock"){
-                return("You lose! Paper beats Rock!")
+                return{ msg: "You lose! Paper beats Rock", playerScore: 0, computerScore: 1};
             } else if (computerSection === "scissors" && playerSelection === "paper"){
-                return("You lose! Scissors beats Paper!")
+                return{ msg: "You lose! Scissors beats Paper!", playerScore: 0, computerScore: 1};
             } else if (computerSection === "scissors" && playerSelection === "rock"){
-                return("You Win!  Rock beats Scissors!")
+                return{ msg: "You Win!  Rock beats Scissors!", playerScore: 1, computerScore: 0};
             }
         
         }
-        console.log (singleRound());
+        console.log (singleRound().msg);
     </script>
 </head>
 <body>
