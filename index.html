@@ -53,7 +53,30 @@
             }
         
         }
-        console.log (singleRound().msg);
+        
+
+        /*Function game calls singleRound 5 times
+        player wins if their score is bigger than Computer score
+        After each call, keep a running score total
+        When 5 calls are up, compare scores and declare a winner
+        */
+       let playerRunningScore = 0;
+       let computerRunningScore = 0;
+
+        for(let i=0; i<5; i++){
+            roundResult = singleRound();
+            console.log (roundResult.msg);
+            playerRunningScore += roundResult.playerScore;
+            computerRunningScore += roundResult.computerScore;    
+        }
+
+        if (playerRunningScore === computerRunningScore){
+            console.log("It`s a tie");
+        }else if (playerRunningScore > computerRunningScore){
+            console.log("You won!");
+        }else{
+            console.log("You lost!");
+        }
     </script>
 </head>
 <body>
