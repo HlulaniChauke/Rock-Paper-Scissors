@@ -64,13 +64,15 @@ function actionsForASingleRound(buttonValue){
     //display result
     computerDisplayScore.textContent = 'Computer Score: '+ computerCurrentScore;
     playerDisplayScore.textContent = 'Your Score: '+ playerCurrentScore;
-
-    console.log(roundResult.msg, computerCurrentScore, playerCurrentScore)
-    console.log(printResults(computerCurrentScore,playerCurrentScore));
+    alert(roundResult.msg);
+    
+    //maintains a first to 5 rule for the game
     if (printResults(computerCurrentScore,playerCurrentScore) != 'play on!'){
-        console.log('New game! lets reset. Go');
+        alert('New game! lets reset. Go');
         computerCurrentScore = 0;
         playerCurrentScore = 0;
+        computerDisplayScore.textContent = 'Computer Score: '+ computerCurrentScore;
+        playerDisplayScore.textContent = 'Your Score: '+ playerCurrentScore;
     }
 }
 
