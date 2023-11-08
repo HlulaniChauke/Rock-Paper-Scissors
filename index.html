@@ -4,82 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Scissor Paper</title>
-    <script>
-        // choose Rock, Paper or Scissors randomly
-        //use Random and floor to generate numbers 1,2 or 3
-        //match the number to Rock, Paper and scissors
-        //return the choice
-    function getComputerChoice(){
-        min = 1;
-        max = 4;
-        number = Math.floor(Math.random()*(3))+1;
-        if (number === 1){
-            return "rock"
-        }else if( number === 2){
-            return "scissors"
-        }else if (number === 3){
-            return "paper"
-        }
-            
-    }
-        // if computerSection and playerSelection are equal. its a tie
-        //if computerSection is rock and playerSelection is paper. Win 
-        //if computerSection is rock and playerSelection is scissors. Lose
-        //if computerSection is paper and playerSelection is scissors. Win  
-        //if computerSection is paper and playerSelection is rock. lose
-        //if computerSection is scissors and playerSelection is paper. lose 
-        //if computerSection is scissors and playerSelection is rock. Win  
-        function singleRound(){
-            let playerSelection = prompt("write rock, scissors or paper").toLowerCase();
-            let computerSection = getComputerChoice();
-
-            if (computerSection === playerSelection){
-                return{ msg: "its a tie", playerScore: 0, computerScore: 0};
-            } else if (computerSection === "rock" && playerSelection === "paper"){
-                return{ msg: "You win! Paper beats Rock!", playerScore: 1, computerScore: 0};
-               
-            } else if (computerSection === "rock" && playerSelection === "scissors"){
-                return{ msg: "You lose! Rock beats scissors!", playerScore: 0, computerScore: 1};
-                
-            } else if (computerSection === "paper" && playerSelection === "scissors"){
-                return{ msg: "You win! Scissors beats Paper!", playerScore: 1, computerScore: 0};
-                return("")
-            } else if (computerSection === "paper" && playerSelection === "rock"){
-                return{ msg: "You lose! Paper beats Rock", playerScore: 0, computerScore: 1};
-            } else if (computerSection === "scissors" && playerSelection === "paper"){
-                return{ msg: "You lose! Scissors beats Paper!", playerScore: 0, computerScore: 1};
-            } else if (computerSection === "scissors" && playerSelection === "rock"){
-                return{ msg: "You Win!  Rock beats Scissors!", playerScore: 1, computerScore: 0};
-            }
-        
-        }
-        
-
-        /*Function game calls singleRound 5 times
-        player wins if their score is bigger than Computer score
-        After each call, keep a running score total
-        When 5 calls are up, compare scores and declare a winner
-        */
-       let playerRunningScore = 0;
-       let computerRunningScore = 0;
-
-        for(let i=0; i<5; i++){
-            roundResult = singleRound();
-            console.log (roundResult.msg);
-            playerRunningScore += roundResult.playerScore;
-            computerRunningScore += roundResult.computerScore;    
-        }
-
-        if (playerRunningScore === computerRunningScore){
-            console.log("It`s a tie");
-        }else if (playerRunningScore > computerRunningScore){
-            console.log("You won!");
-        }else{
-            console.log("You lost!");
-        }
-    </script>
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <div class="main">
+        <div class="intro">
+            <h1> 
+                Rock Paper Scissors
+            </h1>
+            <h3>
+                Click an of the button to play against the computer. 
+                First to 5 points wins
+            </h3>
+        </div>
+        <div class="play">
+            <button id="rock">ROCK</button>
+            <button id="paper">PAPER</button>
+            <button id="scissors">SCISSORS</button>
+        </div>
+        <Div>
+            <p>Computer Score: </p>
+            <p>Your Score:</p>
+        </Div>
+    </div>
     
 </body>
 </html>
