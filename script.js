@@ -1,3 +1,16 @@
+// Declarations
+const mainDiv = document.querySelector('.main')
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
+let computerCurrentScore = 0;
+let playerCurrentScore = 0;
+const computerDisplayScore = document.createElement('div');
+const playerDisplayScore = document.createElement('div');
+
+//add the result section
+mainDiv.appendChild(computerDisplayScore);
+mainDiv.appendChild(playerDisplayScore);
 
 //the function to get computer choice
 function getComputerChoice(){
@@ -34,11 +47,6 @@ function singleRound(choice){
         return{ msg: "You Win!  Rock beats Scissors!", playerScore: 1, computerScore: 0};
     }
 }
-const rockButton = document.querySelector('#rock');
-const paperButton = document.querySelector('#paper');
-const scissorsButton = document.querySelector('#scissors');
-let computerCurrentScore = 0;
-let playerCurrentScore = 0;
 
 function printResults(computerCurrentScore, playerCurrentScore){
     if (computerCurrentScore===5 && playerCurrentScore===5) return 'tie'
@@ -52,6 +60,11 @@ function actionsForASingleRound(buttonValue){
     roundResult = singleRound('rock');
     computerCurrentScore += roundResult.computerScore;
     playerCurrentScore += roundResult.playerScore;
+
+    //display result
+    computerDisplayScore.textContent = 'Computer Score: '+ computerCurrentScore;
+    playerDisplayScore.textContent = 'Your Score: '+ playerCurrentScore;
+
     console.log(roundResult.msg, computerCurrentScore, playerCurrentScore)
     console.log(printResults(computerCurrentScore,playerCurrentScore));
     if (printResults(computerCurrentScore,playerCurrentScore) != 'play on!'){
