@@ -39,30 +39,43 @@ const paperButton = document.querySelector('#paper');
 const scissorsButton = document.querySelector('#scissors');
 let computerCurrentScore = 0;
 let playerCurrentScore = 0;
-//listen for buttons with if statements
-//when a button is clicked, check if scores are less than 5
-//if less than 5 call singleRound and tall the scores
-//tell the player if they won or lose
-//display current score.
-//Maybe create checkCurrentScore function
-function checkCurrentScore(computerCurrentScore,playerCurrentScore){
 
+function printResults(computerCurrentScore, playerCurrentScore){
     if (computerCurrentScore===5 && playerCurrentScore===5) return 'tie'
-        else if (computerCurrentScore===5) return 'computer'
-            else if (playerCurrentScore===5) return 'player'
-                else return 'no winner'
+        else if (computerCurrentScore===5) return 'computer won!'
+            else if (playerCurrentScore===5) return 'You won!'
+                else return 'play on!'
 }
 
-rockButton.addEventListener('click', () => 
-    //let roundResult = singleRound('rock');
-    console.log(singleRound('rock').msg, computerCurrentScore, playerCurrentScore));
+//function to actionsForASingleRound()
+function actionsForASingleRound(buttonValue){
+    roundResult = singleRound('rock');
+    computerCurrentScore += roundResult.computerScore;
+    playerCurrentScore += roundResult.playerScore;
+    console.log(roundResult.msg, computerCurrentScore, playerCurrentScore)
+    console.log(printResults(computerCurrentScore,playerCurrentScore));
+    if (printResults(computerCurrentScore,playerCurrentScore) != 'play on!'){
+        console.log('New game! lets reset. Go');
+        computerCurrentScore = 0;
+        playerCurrentScore = 0;
+    }
+}
 
+//when a button is clicked, check if scores are less than 5
+  
+rockButton.addEventListener('click', () => 
+    actionsForASingleRound('rock'));
 
 paperButton.addEventListener('click', () => 
-    //let roundResult = singleRound('rock');
-    console.log(singleRound('paper').msg, computerCurrentScore, playerCurrentScore));
-
+    actionsForASingleRound('paper'));
 
 scissorsButton.addEventListener('click', () => 
-    //let roundResult = singleRound('rock');
-    console.log(singleRound('scissors').msg, computerCurrentScore, playerCurrentScore));
+    actionsForASingleRound('scissors'));
+
+/*
+
+}
+
+console.log(printResults(computerCurrentScore, playerCurrentScore));
+           
+*/
